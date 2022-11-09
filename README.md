@@ -1,4 +1,4 @@
-# template-docker-golang-exec-build
+# docker-codesenberg-bombardier
 
 ![docker version semver](https://img.shields.io/docker/v/sinlov/docker-codesenberg-bombardier?sort=semver)
 [![docker image size](https://img.shields.io/docker/image-size/sinlov/docker-codesenberg-bombardier)](https://hub.docker.com/r/sinlov/docker-codesenberg-bombardier)
@@ -27,7 +27,7 @@ $ bombardier --help
 
 - rename `sinlov/docker-codesenberg-bombardier` to new github url
 - rename `sinlov` to new org or user
-- rename `template-docker-golang-exec-build` to new docker image name
+- rename `docker-codesenberg-bombardier` to new docker image name
 - rename target url `https://github.com/codesenberg/bombardier.git`
 - rename target version `v1.2.5`
 - rename target GO_SRC_PATH `github.com/codesenberg/bombardier`

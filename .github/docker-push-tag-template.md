@@ -19,7 +19,7 @@ env:
   # nmae of docker image
   DOCKER_HUB_USER: sinlov
   IMAGE_BUILD_OS_PATH: alpine
-  IMAGE_NAME: template-docker-golang-exec-build
+  IMAGE_NAME: docker-codesenberg-bombardier
 
 jobs:
 
@@ -76,7 +76,7 @@ env:
   # nmae of docker image
   DOCKER_HUB_USER: sinlov
   IMAGE_BUILD_OS_PATH: alpine
-  IMAGE_NAME: template-docker-golang-exec-build
+  IMAGE_NAME: docker-codesenberg-bombardier
 
 jobs:
 

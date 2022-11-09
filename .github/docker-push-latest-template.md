@@ -18,7 +18,7 @@ on:
 env:
   # nmae of docker image
   DOCKER_HUB_USER: sinlov
-  IMAGE_NAME: template-docker-golang-exec-build
+  IMAGE_NAME: docker-codesenberg-bombardier
 
 jobs:
 
@@ -69,7 +69,7 @@ on:
 env:
   # nmae of docker image
   DOCKER_HUB_USER: sinlov
-  IMAGE_NAME: template-docker-golang-exec-build
+  IMAGE_NAME: docker-codesenberg-bombardier
 
 jobs:
 

@@ -7,8 +7,8 @@ INFO_BUILD_FROM_IMAGE ?= alpine:latest
 INFO_TEST_BUILD_PATH ?= test
 INFO_TEST_BUILD_DOCKER_FILE ?= Dockerfile
 INFO_TEST_BUILD_PARENT_IMAGE ?= golang:1.19.2-buster
-INFO_TEST_BUILD_PARENT_CONTAINER ?= test-parent-template-docker-golang-exec-build
-INFO_TEST_TAG_BUILD_CONTAINER_NAME ?= test-template-docker-golang-exec-build
+INFO_TEST_BUILD_PARENT_CONTAINER ?= test-parent-docker-codesenberg-bombardier
+INFO_TEST_TAG_BUILD_CONTAINER_NAME ?= test-docker-codesenberg-bombardier
 
 dockerEnv:
 	@echo "====== docker env print start"
