@@ -8,30 +8,33 @@
 # https://hub.docker.com/_/golang/tags
 FROM golang:1.19.2-buster as builder
 
-ARG GO_PATH_SOURCE_DIR=/go/src/
+ARG GO_PATH_SOURCE_DIR=/go/src
 WORKDIR ${GO_PATH_SOURCE_DIR}
 
-RUN git clone https://github.com/codesenberg/bombardier.git -b v1.2.5 --depth=1 github.com/codesenberg/bombardier
+RUN git clone https://github.com/codesenberg/bombardier.git --depth=1 github.com/codesenberg/bombardier
 
 # download deps before gobuild
 # share gomod cache
 RUN --mount=type=cache,id=gomod,target=/go/pkg/mod \
     cd ${GO_PATH_SOURCE_DIR}/github.com/codesenberg/bombardier && \
-    go mod download -x
+    go mod init github.com/codesenberg/bombardier && \
+    go mod download -x && \
+    go mod tidy && \
+    go get -u golang.org/x/sys
 # directories are not shared
 # builder-linux-amd64:/go/bin/app-amd64
 # builder-linux-arm64:/go/bin/app-arm64
 
 RUN --mount=type=cache,id=gomod,target=/go/pkg/mod \
   cd ${GO_PATH_SOURCE_DIR}/github.com/codesenberg/bombardier && \
+  go mod vendor && \
   CGO_ENABLED=0 \
   go build \
-  -a \
+  -v \
   -installsuffix cgo \
   -ldflags '-w -s --extldflags "-static -fpic"' \
   -tags netgo \
-  -o bombardier \
-  bombardier.go
+  -o bombardier
 
 # https://hub.docker.com/_/alpine
 FROM alpine:latest
