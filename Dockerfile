@@ -11,12 +11,13 @@ FROM golang:1.19.2-buster as builder
 ARG GO_PATH_SOURCE_DIR=/go/src
 WORKDIR ${GO_PATH_SOURCE_DIR}
 
-RUN git clone https://github.com/codesenberg/bombardier.git --depth=1 github.com/codesenberg/bombardier
+RUN git clone https://github.com/codesenberg/bombardier.git -b v1.2.5 --depth=1 github.com/codesenberg/bombardier
 
 # download deps before gobuild
 # share gomod cache
 RUN --mount=type=cache,id=gomod,target=/go/pkg/mod \
     cd ${GO_PATH_SOURCE_DIR}/github.com/codesenberg/bombardier && \
+    go mod init github.com/codesenberg/bombardier && \
     go mod download -x && \
     go mod tidy && \
     go get -u golang.org/x/sys
