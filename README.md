@@ -10,11 +10,17 @@
 
 - [https://github.com/codesenberg/bombardier](https://github.com/codesenberg/bombardier)
 
-## source repo
-
-[https://github.com/sinlov/docker-codesenberg-bombardier](https://github.com/sinlov/docker-codesenberg-bombardier)
-
 ## useage
+
+- with bash
+
+```bash
+$ docker run -it --rm sinlov/docker-codesenberg-bombardier:latest -c 200 -d 10s -l http://httpbin.org/get
+# or use tag
+$ docker run -it --rm sinlov/docker-codesenberg-bombardier:1.2.5-alpine -c 200 -d 10s -l http://httpbin.org/get
+```
+
+- with exec
 
 ```bash
 $ sudo curl -L --fail https://raw.githubusercontent.com/sinlov/docker-codesenberg-bombardier/main/run.sh -o /usr/local/bin/bombardier
@@ -22,6 +28,10 @@ $ sudo chmod +x /usr/local/bin/bombardier
 # then check
 $ bombardier --help
 ```
+
+## source repo
+
+[https://github.com/sinlov/docker-codesenberg-bombardier](https://github.com/sinlov/docker-codesenberg-bombardier)
 
 ## todo-list
 
