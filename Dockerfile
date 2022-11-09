@@ -17,7 +17,6 @@ RUN git clone https://github.com/codesenberg/bombardier.git --depth=1 github.com
 # share gomod cache
 RUN --mount=type=cache,id=gomod,target=/go/pkg/mod \
     cd ${GO_PATH_SOURCE_DIR}/github.com/codesenberg/bombardier && \
-    go mod init github.com/codesenberg/bombardier && \
     go mod download -x && \
     go mod tidy && \
     go get -u golang.org/x/sys
