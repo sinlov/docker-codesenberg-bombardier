@@ -15,10 +15,10 @@ on:
         required: true
         type: string
       push_remote_flag:
-          description: 'flag for push to remote default is false'
-          default: true
-          required: false
-          type: boolean
+        description: 'flag for push to remote'
+        default: true
+        required: false
+        type: boolean
 
 env:
   DOCKER_IMAGE_PLATFORMS: linux/amd64,linux/386,linux/arm64/v8 # change to your platforms for release
@@ -71,7 +71,7 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - docker-image-buildx
-    if: ${{inputs.push_remote_flag}} == true
+    if: ${{ inputs.push_remote_flag }}
     steps:
       -
         name: Checkout
