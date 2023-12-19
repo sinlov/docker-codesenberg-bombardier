@@ -19,6 +19,10 @@ WORKDIR ${GO_PATH_SOURCE_DIR}
 RUN git clone https://${GO_ENV_PACKAGE_NAME}.git -b v${GO_PKG_RELEASE_VERSION} --depth=1 ${GO_ENV_PACKAGE_NAME}
 WORKDIR ${GO_PATH_SOURCE_DIR}/${GO_ENV_PACKAGE_NAME}
 
+# proxy golang
+RUN go env -w "GOPROXY=https://goproxy.cn,direct"
+RUN go env -w "GOPRIVATE='*.gitlab.com,*.gitee.com"
+
 RUN go mod download -x
 
 RUN CGO_ENABLED=0 \

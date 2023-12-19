@@ -10,14 +10,14 @@
 
 - [https://github.com/codesenberg/bombardier](https://github.com/codesenberg/bombardier)
 
-## useage
+## usage
 
 - with bash
 
 ```bash
 $ docker run -it --rm sinlov/docker-codesenberg-bombardier:latest -c 200 -d 10s -l http://httpbin.org/get
 # or use tag
-$ docker run -it --rm sinlov/docker-codesenberg-bombardier:1.2.5-alpine -c 200 -d 10s -l http://httpbin.org/get
+$ docker run -it --rm sinlov/docker-codesenberg-bombardier:1.2.6 -c 200 -d 10s -l http://httpbin.org/get
 ```
 
 - with exec
@@ -33,22 +33,10 @@ $ bombardier --help
 
 [https://github.com/sinlov/docker-codesenberg-bombardier](https://github.com/sinlov/docker-codesenberg-bombardier)
 
-## todo-list
+### env
 
-- rename `sinlov/docker-codesenberg-bombardier` to new github url
-- rename `sinlov` to new org or user
-- rename `docker-codesenberg-bombardier` to new docker image name
-- rename target url `https://github.com/codesenberg/bombardier.git`
-- rename target version `v1.2.5`
-- rename target GO_SRC_PATH `github.com/codesenberg/bombardier`
-- rename target CLI enter file name `bombardier.go`
-- rename target `bombardier` to new exec tools name
-- rename target `-o bombardier` to new out exec name
-- rename target exec path `github.com/codesenberg/bombardier/bombardier` to new
-- rename target ENTRYPOINT `/app/bombardier`
-- add [secrets](https://github.com/sinlov/docker-codesenberg-bombardier/settings/secrets/actions) `New repository secret` name `ACCESS_TOKEN` from [hub.docker](https://hub.docker.com/settings/security)
-- go cli repo [https://github.com/codesenberg/bombardier](https://github.com/codesenberg/bombardier)
-
+- minimum go version: go 1.19
+- change `go 1.19`, `^1.19`, `1.19.13-bullseye`, `1.19.13` to new go version
 ## fast dev
 
 ```bash
