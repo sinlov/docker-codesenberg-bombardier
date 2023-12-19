@@ -71,7 +71,7 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - docker-image-buildx
-    if: github.event.inputs.push_remote_flag == 'true'
+    if: ${{inputs.push_remote_flag}} == true
     steps:
       -
         name: Checkout
