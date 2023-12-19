@@ -29,7 +29,7 @@ RUN CGO_ENABLED=0 \
   go build \
   -a \
   -installsuffix cgo \
-  -ldflags '-w -s --extldflags "-static -fpic"' \
+  -ldflags "-w -s --extldflags '-static -fpic' -X main.version=${GO_PKG_RELEASE_VERSION}" \
   -tags netgo \
   -o ${GO_ENV_ROOT_BUILD_BIN_PATH}
 
